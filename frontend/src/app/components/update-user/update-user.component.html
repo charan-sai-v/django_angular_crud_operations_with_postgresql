@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+</head>
+<body>
+    <!--Navbar consists only Home and Add User-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+              <a class="nav-link" routerLink="/add">Add User</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+        <!--Form to update user  name: string email: string gender: string-->
+        <div class="my-5">
+            <div class="mx-auto w-25 " style="max-width:100%;">
+              <h2 class="text-center mb-3">Update User</h2>
+              <form  [formGroup]="form" (ngSubmit)="submit()" >
+
+                <!--Name-->
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                      <label for="name" class="form-label">Name</label>
+                      <input id="name"  formControlName="name"  type="text" name="name" class="form-control" [placeholder]="user?.name"  required>
+                    </div>
+                  </div>
+                
+                <!--Email-->
+                <div class="row">
+                  <div class="col-md-12 form-group mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email"  formControlName="email" type="email" name="email" class="form-control" [placeholder]="user?.email" required>
+                  </div>
+                </div>
+      
+               
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <button [disabled]="!form.valid" class="btn btn-primary w-100" type="submit" value="Submit">Button</button>
+                  </div>
+                </div>
+      
+                <div>
+                  
+                </div>
+              </form>
+        
+            </div>
+          </div>
+
+        
+        
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Users</title>
+</head>
+<body>
+    <!--Navbar consists only Home and Add User-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+              <a class="nav-link" routerLink="/add">Add User</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!--Table to display all the users-->
+        <!--container-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">View Users</h1>
+                    <!--Add button -->
+                    <button class="btn btn-primary" routerLink="/add">Add User</button>
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let user of users">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.gender}}</td>
+                            <td>
+                              <button class="btn btn-primary" routerLink="/update/{{user.id}}">Edit</button>
+                              <button class="btn btn-danger mx-2" (click)="deleteUser(user.id)">Delete</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+      
+
+</body>
+</html>
